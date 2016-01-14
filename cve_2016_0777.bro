@@ -18,7 +18,7 @@ export {
 		## vulnerable roaming feature.  As such, if a server
 		## is seen to be advertising this support, it is
 		## very likely malicious.
-		Server_Advertises_Malicious_Roaming_Support,
+		Server_Advertises_Suspicious_Roaming_Support,
 
 		## A client was observed attempting to resume an SSH
 		## connection using the vulnerable roaming feature.
@@ -35,7 +35,7 @@ event ssh_capabilities(c: connection, cookie: string, capabilities: Capabilities
 			{
 			if ( capabilities$is_server )
 				{
-				NOTICE([$note=Server_Advertises_Malicious_Roaming_Support,
+				NOTICE([$note=Server_Advertises_Suspicious_Roaming_Support,
 					$conn=c, $msg=fmt("%s advertises that it supports SSH roaming", c$id$resp_h),
 					$identifier=cat(c$id$resp_h)]);
 				}
